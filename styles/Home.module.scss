@@ -1,0 +1,70 @@
+
+.svg{
+    // transform: scale(0.5);
+    transform-origin: left;
+    // display: inline-block;
+    width: 100%;
+    height: auto;
+    // border: solid blue 1px;
+    // z-index: 2;
+    transform: translate(-100%);
+    opacity: 0;
+}
+
+.designerSvg:hover{
+    fill: white;
+}
+
+.heroBar{
+    // border: red 1px solid;
+    position: relative;
+    z-index: 1;
+    
+}
+
+.picFrame{
+    height: 800px;
+    width: 600px;
+    // border: red 10px solid;
+    position: absolute;
+    right: 0;
+    top: 0;
+    // background-image: url('../public/img/hero.jpg');
+    background-size: 220%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    transform: translate(100%);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+}
+
+.photoContent{
+    height: 140%;
+
+}
+
+.svg, .picFrame{
+    animation: heroMotion 1.6s ease forwards;
+}
+
+// 所有的媒体查询都在这————
+@media (max-width:1920px) {
+    .picFrame{
+        height: 400px;
+        width: 300px;
+    }
+    
+}
+
+
+// 大字和大图的动画效果
+@keyframes heroMotion {
+    to {
+        opacity: 1;
+        transform: translate(0%);
+    }
+}

@@ -1,0 +1,37 @@
+
+.footContainer{
+    height: 800px;
+    width: 100%;
+    position: relative;
+    // border: 1px red solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.content{
+    // border: solid 1px blue;
+    flex-grow: 2;
+}
+
+.hints{
+    display: flex;
+    flex-direction: column;
+    font-family: 'siyuan';
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+.uptoTop{
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.arrow{
+    display: block;
+    // border: 1px red solid;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
