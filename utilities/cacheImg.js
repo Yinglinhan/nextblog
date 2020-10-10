@@ -2,7 +2,7 @@
 
 
 
-function CacheImg({imgs,setStart}){
+function CacheImg({imgs,startNav,router}){
     console.log(imgs)
     
     const allPromise = imgs.map((src)=>{
@@ -22,8 +22,8 @@ function CacheImg({imgs,setStart}){
     console.log(allPromise)
     const all = Promise.all(allPromise)
     all.then((value)=>{
-        setTimeout(()=>{setStart(true)},1000)
-        console.log(666)
+        setTimeout(()=>{startNav(router)},2000)
+        // console.log(666)
     })
 
   
