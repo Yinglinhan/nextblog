@@ -15,8 +15,16 @@ export default function Index(){
 
   
     useEffect(()=>{
+        router.prefetch('/home')
         const imgSetting = {
-            imgs:["/img/hero.jpg"],
+            imgs:[
+                "/img/hero.jpg",
+                "/img/cases/cinema.jpg",
+                "/img/cases/lpxj.jpg",
+                "/img/cases/ts.jpg",
+                "/img/cases/xwlj.jpg",
+                "/img/cases/zr.jpg"
+        ],
             startNav,
             router
           }

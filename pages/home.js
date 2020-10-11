@@ -9,18 +9,48 @@ import PageLoad from '../components/pageLoad/pageLoad'
 
 
 import CacheImg from '../utilities/cacheImg'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { NavState } from '../utilities/context'
 import { motion } from 'framer-motion'
 
 
 
 
-
+let intervals;
 
 export default function Home() {
- 
   
+  const refImg = useRef(null)
+  const imgs =[
+    "/img/hero.jpg",
+    "/img/cases/cinema.jpg",
+    "/img/cases/lpxj.jpg",
+    "/img/cases/ts.jpg",
+    "/img/cases/xwlj.jpg",
+    "/img/cases/zr.jpg"
+  ]
+
+  const [isShowCases,setCase] = useState(false)
+ 
+
+  function changePic() {
+    console.log('就是我呀')
+    // console.log(refImg.current.src=imgs[2])
+      refImg.current.src=imgs[Math.ceil(Math.random() * 5)]
+      intervals = setInterval(() => {
+        refImg.current.src=imgs[Math.ceil(Math.random() * 5)]
+      }, 300);
+    
+    
+    setCase(true)
+  }
+
+  function stopChange(){
+    clearInterval(intervals)
+    console.log(intervals)
+    refImg.current.src=imgs[0]
+    setCase(false)
+  }
 
   const tempData = [1,2,3]
 
@@ -40,7 +70,7 @@ export default function Home() {
               <path d="M630.578 0V36.1308H587.632V119.057H622.223V155.355H587.632V249.808H630.578V286.236H429.278V0H630.578Z" fill="black"/>
               <path d="M1575.57 609.505V645.636H1532.63V728.563H1567.22V764.861H1532.63V859.313H1575.57V895.742H1374.27V609.505H1575.57Z" fill="black"/>
               <path d="M689.736 896.414C699.423 896.414 707.275 888.561 707.275 878.875C707.275 869.188 699.423 861.335 689.736 861.335C680.049 861.335 672.196 869.188 672.196 878.875C672.196 888.561 680.049 896.414 689.736 896.414Z" fill="black"/>
-              <g className={styles.designerSvg} fill="black">
+              <g className={styles.designerSvg} fill="black"  onMouseEnter={changePic} onMouseLeave={stopChange}>
                 <path d="M947.136 406.433V333.82C947.136 326.111 944.119 318.718 938.749 313.267C933.379 307.815 926.095 304.753 918.5 304.753H780.333C772.738 304.753 765.454 307.815 760.084 313.267C754.714 318.718 751.697 326.111 751.697 333.82V561.922C751.697 569.631 754.714 577.025 760.084 582.476C765.454 587.927 772.738 590.989 780.333 590.989H918.5C926.095 590.989 933.379 587.927 938.749 582.476C944.119 577.025 947.136 569.631 947.136 561.922V419.491H849.774L849.345 455.826H892.012L849.059 478.353H836.888V343.246H849.774V406.411L947.136 406.433Z" />
                 <path d="M1363.75 304.753V340.884H1320.8V423.81H1355.4V460.108H1320.8V554.561H1363.75V590.989H1162.45V304.753H1363.75Z" />
                 <path d="M414.159 304.753V340.884H371.213V423.81H405.804V460.108H371.213V554.561H414.159V590.989H212.859V304.753H414.159Z" />
@@ -59,8 +89,8 @@ export default function Home() {
               <path d="M1714.7 787.92L1740.72 814.099L1802.87 751.56L1776.85 725.381L1714.7 787.92Z" fill="black"/>
               <path d="M1692.46 732.469L1692.46 769.492L1776.14 769.492L1776.14 732.469L1692.46 732.469Z" fill="black"/>
             </svg>
-          <div className={styles.picFrame}>
-            <img src="/img/hero.jpg" alt="photo" className={styles.photoContent} />
+          <div className={isShowCases ? `${styles.picFrame} ${styles.picFrameAdd}` : styles.picFrame}>
+            <img src="/img/hero.jpg" alt="photo" className={isShowCases ? styles.showCases : styles.photoContent } ref={refImg}/>
           </div>
         </div>
         <div className={styles.list}>

@@ -29,10 +29,6 @@
     position: absolute;
     right: 0;
     top: 0;
-    // background-image: url('../public/img/hero.jpg');
-    background-size: 220%;
-    background-repeat: no-repeat;
-    background-position: center;
     z-index: -1;
     transform: translate(100%);
     opacity: 0;
@@ -41,10 +37,17 @@
     overflow: hidden;
     align-items: center;
 }
+.picFrameAdd{
+    height: 600px;
+    width: 1000px;
+}
 
 .photoContent{
     height: 140%;
 
+}
+.showCases{
+    height: 100%;
 }
 
 .svg, .picFrame{
