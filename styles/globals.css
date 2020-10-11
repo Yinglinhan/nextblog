@@ -1,7 +1,14 @@
 @font-face {
-  font-family: 'siyuan';
+  font-family: 'siyuanH';
   src: url('../public//font/SourceHanSerifCN-Heavy.otf');
 }
+@font-face{
+  font-family: 'siyuanR';
+  src: url('../public//font/SourceHanSerifCN-Regular.otf');
+}
+
+
+
 html,
 body {
   padding: 0;

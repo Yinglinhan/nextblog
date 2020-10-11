@@ -12,14 +12,27 @@
 .content{
     // border: solid 1px blue;
     flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.contentShow{
+    font-size: 10rem;
+    font-weight: 100;
+    
 }
 
 .hints{
     display: flex;
     flex-direction: column;
-    font-family: 'siyuan';
+    align-items: flex-start;
+    font-family: 'siyuanR';
     letter-spacing: 1px;
     margin-bottom: 20px;
+}
+.hints span:hover{
+    // border: solid 1px red;
+    font-family: 'siyuanH';
 }
 .uptoTop{
     position: absolute;

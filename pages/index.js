@@ -46,7 +46,7 @@ export default function Index(){
     const exitAnimation = {
         y:'-100%',
         transition:{
-            duration: 2
+            duration: 0.5
         }
     }
 
