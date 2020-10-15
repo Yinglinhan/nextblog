@@ -31,11 +31,16 @@ export default function Home() {
   ]
 
   const [isShowCases,setCase] = useState(false)
- 
+  
+  useEffect(()=>{
+    const player = TCPlayer('player',{
+      fileID:'5285890808586195016',
+      appID:'1256266192',
+      bigPlayButton:false
+    })
+  },[])
 
   function changePic() {
-    console.log('就是我呀')
-    // console.log(refImg.current.src=imgs[2])
       refImg.current.src=imgs[Math.ceil(Math.random() * 5)]
       intervals = setInterval(() => {
         refImg.current.src=imgs[Math.ceil(Math.random() * 5)]
@@ -60,7 +65,6 @@ export default function Home() {
       <Head>
 
       </Head>
-      {/* <PageLoad show={start}></PageLoad> */}
       <Page>
         <div className={styles.heroBar} >
           <svg width="1803" height="897" viewBox="0 0 1803 897" fill="none" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg" className={styles.svg}>
@@ -94,8 +98,9 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.list}>
-          {tempData.map(item => <Headtitle key={item}></Headtitle>)}
-
+          {/* {tempData.map(item => <Headtitle key={item}></Headtitle>)} */}
+          <video id="player" width="1280" height="720" preload="auto">
+          </video>
         </div>
         <FootBar>
 
