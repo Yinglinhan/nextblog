@@ -13,10 +13,46 @@ import { useEffect, useRef, useState } from 'react'
 import { NavState } from '../utilities/context'
 import { motion } from 'framer-motion'
 
-
+// 内核
+import cloudbase from "@cloudbase/js-sdk";;
+// 登录模块
+import { registerAuth } from "@cloudbase/js-sdk/auth";
 
 
 let intervals;
+const app = cloudbase.init({
+  env: 'testnext-1gern0t2fef69091'
+});
+console.log(app)
+const auth = app.auth();
+
+async function login(){
+  await auth.anonymousAuthProvider().signIn();
+  // 匿名登录成功检测登录状态isAnonymous字段为true
+  const loginState = await auth.getLoginState();
+  console.log(loginState.isAnonymousAuth); // true
+  const db = app.database();
+
+    // 2. 构造查询语句
+    db
+      // collection() 方法获取一个集合的引用
+      .collection("test")
+      // where() 方法传入一个 query 对象，数据库返回集合中字段等于指定值的 JSON 文档。
+      // .where({
+      //   name: "a"
+      // })
+      // get() 方法会触发网络请求，往数据库取数据
+      .get()
+      .then(function (res) {
+        console.log(res);
+        // 输出 [{ "name": "The Catcher in the Rye", ... }]
+      });
+
+}
+
+login();
+
+
 
 export default function Home() {
   
